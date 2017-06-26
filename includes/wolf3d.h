@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   wolf3d.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spectre <spectre@student.42.fr>            +#+  +:+       +#+        */
+/*   By: adoussau <adoussau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/13 19:13:47 by adoussau          #+#    #+#             */
-/*   Updated: 2016/03/13 20:59:59 by spectre          ###   ########.fr       */
+/*   Updated: 2017/06/26 02:59:07 by spectre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,11 @@
 #  include <SDL2/SDL_net.h>
 # endif
 
+# ifdef __EMSCRIPTEN__
 #  include <SDL2/SDL.h>
 #  include <SDL2/SDL_image.h>
 #  include <SDL/SDL_mixer.h>
+# endif
 
 # define WIN_LX 1600	//
 # define WIN_LY 900		//

@@ -5,3 +5,6 @@ debug
 *.so
 wolf3d
 wolf3d_debug
+wolf3d.data
+wolf3d.js
+wolf3d.html*

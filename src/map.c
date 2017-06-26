@@ -6,7 +6,7 @@
 /*   By: adoussau <adoussau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/13 16:55:44 by adoussau          #+#    #+#             */
-/*   Updated: 2017/06/26 02:13:54 by spectre          ###   ########.fr       */
+/*   Updated: 2017/06/26 03:03:45 by spectre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,9 @@ void		map_init(t_game *game, int mode, int map)
 		game->input[x++] = 0;
 	player_init(game);
 	hud_background(game, mode);
-	game_init_sdl_mixer(&game->sounds, path);
+	#ifndef __EMSCRIPTEN__
+		game_init_sdl_mixer(&game->sounds, path);
+	#endif
 }
 
 int			map_load(t_map *map, char *path)

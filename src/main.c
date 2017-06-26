@@ -6,7 +6,7 @@
 /*   By: adoussau <adoussau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/13 16:55:44 by adoussau          #+#    #+#             */
-/*   Updated: 2017/06/26 02:40:17 by spectre          ###   ########.fr       */
+/*   Updated: 2017/06/26 03:01:39 by spectre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#ifdef EMSCRIPTEN
+#ifdef __EMSCRIPTEN__
 	#include <emscripten.h>
 #endif
 

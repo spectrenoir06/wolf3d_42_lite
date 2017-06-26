@@ -6,7 +6,7 @@
 /*   By: adoussau <adoussau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/21 02:22:25 by adoussau          #+#    #+#             */
-/*   Updated: 2017/06/26 02:23:45 by spectre          ###   ########.fr       */
+/*   Updated: 2017/06/26 02:59:55 by spectre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	game_init_sdl_mixer(t_sounds *sounds, char *path)
 	sounds->music = Mix_LoadMUS(buff);
 	Mix_VolumeMusic(MIX_MAX_VOLUME / 4);
 	Mix_PlayMusic(sounds->music, 1);
-	Mix_SetMusicPosition(3.0);
+	// Mix_SetMusicPosition(3.0);
 	sounds_init(sounds, path);
 }
 

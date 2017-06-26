@@ -6,7 +6,7 @@
 /*   By: adoussau <adoussau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/04 17:31:50 by adoussau          #+#    #+#             */
-/*   Updated: 2017/06/26 02:30:31 by spectre          ###   ########.fr       */
+/*   Updated: 2017/06/26 03:05:46 by spectre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,9 @@ void	sdl_exit(t_game *game)
 	SDL_DestroyTexture(game->sdl.tex);
 	SDL_DestroyRenderer(game->sdl.rd);
 	SDL_DestroyWindow(game->sdl.win);
-	sdl_mixer_quit(&game->sounds);
+	#ifndef __EMSCRIPTEN__
+		sdl_mixer_quit(&game->sounds);
+	#endif
 	SDL_Quit();
 	exit(0);
 }
@@ -49,7 +51,9 @@ void	kb_key_down(SDL_Event ev, t_game *game)
 	else if (ev.key.keysym.sym == SDLK_SPACE && game->player.w_anim == 0)
 	{
 		weapon_start_anim(game, &game->player);
-		Mix_PlayChannel(-1, game->sounds.son2, 0);
+		#ifndef __EMSCRIPTEN__
+			Mix_PlayChannel(-1, game->sounds.son2, 0);
+		#endif
 	}
 	else if (ev.key.keysym.sym == SDLK_ESCAPE)
 		sdl_exit(game);
@@ -71,7 +75,9 @@ void	kb_key_up(SDL_Event ev, t_game *game)
 		game->input[ROT_Z] = 0;
 	else if (ev.key.keysym.sym == SDLK_RIGHT || ev.key.keysym.sym == SDLK_e)
 		game->input[ROT_Z] = 0;
-	Mix_FadeOutChannel(1, 200);
+	#ifndef __EMSCRIPTEN__
+		Mix_FadeOutChannel(1, 200);
+	#endif
 }
 
 int		game_event_handler(t_game *game)
@@ -85,7 +91,9 @@ int		game_event_handler(t_game *game)
 	&& (game->ev.button.button == SDL_BUTTON_LEFT && game->player.w_anim == 0))
 	{
 		weapon_start_anim(game, &game->player);
-		Mix_PlayChannel(-1, game->sounds.son2, 0);
+		#ifndef __EMSCRIPTEN__
+			Mix_PlayChannel(-1, game->sounds.son2, 0);
+		#endif
 	}
 	else if (game->ev.type == SDL_KEYDOWN)
 		kb_key_down(game->ev, game);

@@ -6,7 +6,7 @@
 #    By: adoussau <adoussau@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/06 10:11:24 by adoussau          #+#    #+#              #
-#    Updated: 2017/06/26 02:28:55 by spectre          ###   ########.fr        #
+#    Updated: 2017/06/26 03:08:43 by spectre          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,15 +55,17 @@ OPTI_DEBUG	= O0
 
 UNAME_S := $(shell uname -s)
 #
-ifeq ($(TARGET), $(JS_EXE))
-	SDL	= -lm -s USE_SDL=2 -s USE_SDL_IMAGE=2 -s LEGACY_GL_EMULATION=1   #-lSDL2 -lSDL_mixer -lSDL_net
-	FLAGS	= -Wall -Wextra -Wno-unused-result
-endif
 
 ifeq ($(UNAME_S), Linux)
 	SDL	= -lm -lSDL2 -lSDL2_image -lSDL2_mixer # -lSDL_net
 	FLAGS	= -Wall -Wextra -Wno-unused-result
 endif
+
+ifeq ($(TARGET), WEB)
+	SDL	= -lm -s USE_SDL=2 -s USE_SDL_IMAGE=2 -s SDL2_IMAGE_FORMATS='["png"]'  #-lSDL2 -lSDL_mixer -lSDL_net
+	FLAGS	= -Wall -Wextra -Wno-unused-result
+endif
+
 
 ifeq ($(UNAME_S),Darwin)
 	SDL2		= -framework SDL2
