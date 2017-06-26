@@ -6,7 +6,7 @@
 /*   By: adoussau <adoussau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/04 17:31:50 by adoussau          #+#    #+#             */
-/*   Updated: 2017/06/26 02:21:44 by spectre          ###   ########.fr       */
+/*   Updated: 2017/06/26 02:30:31 by spectre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	kb_key_down(SDL_Event ev, t_game *game)
 	else if (ev.key.keysym.sym == SDLK_SPACE && game->player.w_anim == 0)
 	{
 		weapon_start_anim(game, &game->player);
-		//Mix_PlayChannel(-1, game->sounds.son2, 0);
+		Mix_PlayChannel(-1, game->sounds.son2, 0);
 	}
 	else if (ev.key.keysym.sym == SDLK_ESCAPE)
 		sdl_exit(game);
@@ -71,7 +71,7 @@ void	kb_key_up(SDL_Event ev, t_game *game)
 		game->input[ROT_Z] = 0;
 	else if (ev.key.keysym.sym == SDLK_RIGHT || ev.key.keysym.sym == SDLK_e)
 		game->input[ROT_Z] = 0;
-	//Mix_FadeOutChannel(1, 200);
+	Mix_FadeOutChannel(1, 200);
 }
 
 int		game_event_handler(t_game *game)

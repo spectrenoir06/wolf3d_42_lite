@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spectre <spectre@student.42.fr>            +#+  +:+       +#+        */
+/*   By: adoussau <adoussau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/13 16:55:44 by adoussau          #+#    #+#             */
-/*   Updated: 2016/03/15 19:54:32 by spectre          ###   ########.fr       */
+/*   Updated: 2017/06/26 02:40:17 by spectre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,6 @@ void update(void);
 
 int		main(int ac, char **av)
 {
-	// char	fps[30] = "Wolf3d : FPS = ";
 	int		i;
 
 	// float	test = 0;
@@ -94,6 +93,10 @@ int		main(int ac, char **av)
 	return (0);
 }
 
+char	fps[30];
+float	test = 0;
+int		test2 = 0;
+
 
 void update(void)
 {
@@ -105,6 +108,18 @@ void update(void)
 	hud_render(&game);
 
 	game_draw_all(&game);
+
+	test += game.dt;
+	test2++;
+
+		if (test > 2)
+		{
+			sprintf(fps, "Wolf3d : FPS = %d", test2/2);
+			SDL_SetWindowTitle(game.sdl.win, fps);
+			test = 0;
+			test2 = 0;
+			//memset(game.sdl.text_buf, i%2 ? 0xFFFFFF: 0x0, WIN_LX * WIN_LY * 4);
+		}
 
 	/*
 	UDPpacket packet;

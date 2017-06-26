@@ -6,7 +6,7 @@
 /*   By: adoussau <adoussau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/15 21:45:47 by adoussau          #+#    #+#             */
-/*   Updated: 2017/06/26 02:22:22 by spectre          ###   ########.fr       */
+/*   Updated: 2017/06/26 02:30:51 by spectre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,8 +73,8 @@ void	player_move(t_player *player, t_game *game, t_key dir)
 	}
 	if (player_collide_world(&(game->map), player))
 		player->pos = save;
-	// if (!Mix_Playing(1))
-	// 	Mix_PlayChannel(1, game->sounds.pas, 0);
+	if (!Mix_Playing(1))
+		Mix_PlayChannel(1, game->sounds.pas, 0);
 }
 
 void	player_update(t_player *player, t_game *game)

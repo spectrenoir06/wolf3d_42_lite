@@ -6,7 +6,7 @@
 #    By: adoussau <adoussau@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/06 10:11:24 by adoussau          #+#    #+#              #
-#    Updated: 2017/06/26 02:12:41 by spectre          ###   ########.fr        #
+#    Updated: 2017/06/26 02:28:55 by spectre          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,7 +61,7 @@ ifeq ($(TARGET), $(JS_EXE))
 endif
 
 ifeq ($(UNAME_S), Linux)
-	SDL	= -lm -lSDL2 -lSDL2_image -lSDL_mixer # -lSDL_net
+	SDL	= -lm -lSDL2 -lSDL2_image -lSDL2_mixer # -lSDL_net
 	FLAGS	= -Wall -Wextra -Wno-unused-result
 endif
 
